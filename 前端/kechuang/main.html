@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Simple Image Service</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css" />
+	  <link rel="stylesheet" href="maincss.css"/>
+    <script src="https://cdn.staticfile.org/echarts/4.7.0/echarts.js"></script>
+	  <script type="text/javascript" src="mainjs.js"></script>
+    <script type="text/javascript"src="https://js.arcgis.com/3.20/"></script>
+   
+    <script>
+         
+    var map;
+    require([
+      "esri/map", "esri/layers/ArcGISImageServiceLayer", 
+      "esri/layers/ImageServiceParameters", "dojo/parser", "dojo/domReady!"
+    ], function(
+      Map, ArcGISImageServiceLayer, 
+      ImageServiceParameters, parser
+    ) {
+      parser.parse();
+      map = new Map("map", {
+        basemap: "satellite",
+        center: [120, 35],
+        zoom: 12
+      });
+
+      var params = new ImageServiceParameters();
+      params.noData = 0;
+      var imageServiceLayer = new ArcGISImageServiceLayer("http://localhost:6080/arcgis/rest/services/鲁西南有机质_tif/ImaggeServer", {
+        imageServiceParameters: params,
+        opacity: 0.75
+      });
+      map.addLayer(imageServiceLayer);
+
+      
+    });
+
+    </script>
+  </head>
+  
+  <body>
+	
+  		<div class="header">
+			<ul>
+				<li><a href="#">工具</a>
+					<ul>
+						<li><a href="javascript:void(0);" onclick="openpopup1()">影像加载</a></li>
+						<li><a href="javascript:void(0);" onclick="openpopup2()">指标反演</a></li>
+						<li><a href="#">信息查询</a></li>
+						<li><a href="#">空间分析</a></li>
+						<li><a href="#">时空分析</a></li>
+					</ul>
+				</li>
+				<li><a href="#">土壤知识库</a></li>
+				<li><a href="#">建议决策</a></li>
+				<li><a href="#">农业咨询</a></li>
+				<li><a href="#">个人中心</a></li>
+			</ul>
+		</div>
+    <div id="map"> </div>
+	<div id="popup">
+        <div class="content">
+            <h2>加载文件</h2>
+            <div class="locformchoice">
+                <p>选择文件来源:</p>
+                <label><input type="radio" name="choice">从网络地址获取</label>
+                <label><input type="radio" name="choice">从本地地址获取</label>
+            </div>
+            <div class="locat">
+                <p>输入文件地址:</p>
+                <input type="text">
+            </div>
+            <div class="locatbtn">
+                <input type="submit" value="加载并显示">
+                <input type="submit" value="后台加载">
+            </div>
+        </div>
+    </div>
+	<div id="popup2">
+        <div class="content">
+            <h2>指标反演</h2>
+            <label for="zhibiao">指标:
+            <select>
+                <option id="zhibiao">指标1</option>
+            </select>
+            </label>
+            <label for="moxing">模型:
+            <select>
+                <option id="moxing">模型1</option>
+            </select>
+            </label>
+            <label>选择影像:
+            <input type="text">
+            </label>
+            <div class="btndiv">
+                <input type="submit" value="反演">
+                <input type="submit" value="显示">
+            </div>
+        </div>
+    </div>
+    <div id="chart">
+    </div>
+    <script>
+       var myChart = echarts.init(document.getElementById('chart'));
+       var option={
+         title:{
+            text:'分级统计'
+         },
+          xAxis:{
+            type:'category',
+            data:['极高', '高', '中上', '中', '低','极低']
+          },
+          yAxis:{
+            type:'value'
+          },
+          legend:{
+            data:['像元个数']
+          },
+          series:[{
+            name:'像元个数',
+            type:'bar',
+            data:[3608336, 8190704, 14784260, 1284319,7374,3595],
+            label:{
+                show:true,
+                position:'top'
+            }
+          }]
+
+       };
+       myChart.setOption(option);
+     
+
+    </script>
+
+	
+  </body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title>Test Map</title>
+    <link rel="stylesheet" href="http://127.0.0.1:419/arcgis_js_api/javascript/4.19/esri/themes/light/main.css" />
+    <style>
+      html,
+      body,
+      #viewDiv {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <script src="http://127.0.0.1:419/arcgis_js_api/javascript/4.19/init.js"></script>
+    <script>
+      require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map, MapView){
+        // --------------------------------------------------------------------
+        // If you do not have public internet access then use the Basemap class
+        // and point this URL to your own locally accessible cached service.
+        //
+        // Otherwise you can just use one of the named hosted ArcGIS services.
+        // https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer
+        // --------------------------------------------------------------------
+
+        const map = new Map({
+          basemap: "arcgis-topographic" // Basemap layer service
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-118.805, 34.027], // Longitude, latitude
+          zoom: 13, // Zoom level
+          container: "viewDiv" // Div element
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
+

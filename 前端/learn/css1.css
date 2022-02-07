@@ -1,0 +1,55 @@
+      html, body{ height: 100%; width: 100%; margin: 0; padding: 0; }
+	  #map{height: 90%;width: 100%;margin: 0;padding: 0;z-index: 300;}
+	  .header{height: 50px;width: 100%;background-color: #333;box-shadow: 0 -2px 2px #000;margin-top: 0px;z-index: 500;}
+	  .header>.choice-button{height: 100%;margin: 0;border-width:0px;border-radius: 3px;background-color:#184aff;cursor: pointer;outline: none;font-family: "microsoft yahei";color: white;font-size: 17px; beige;display: inline-block;}
+	  .header ul{
+		  list-style: none;
+	  }
+	  .header ul li{
+		  float: left;
+		  width: 150px;
+		  height: 50px;
+		  background: #222;
+		  margin-right: 1px;
+		  font-size: 14px;
+	  }
+	  .header ul li:hover{
+		  color: #fff;
+		  background:rgba(223,82,83,1);
+		  animation:changeColor 2s infinite;
+		  animation-delay: 3s;
+	  }
+	  .header ul li a{
+		  text-decoration: none;
+		  color: #fff;
+		  display: block;
+		  text-align: center;
+		  line-height: 50px;
+		  font-weight: bold;
+		  text-transform: uppercase;
+	  }
+	  .header ul li ul{
+		  position: absolute;
+		  z-index: 400;
+	  }
+	  .header ul li ul li{
+		  display: none;
+		  width: 150px;
+		  height: 50px;
+		  float: initial;
+		  background: rgba(1,163,164,1);
+		  font-size: 10px;
+		  transition: 0.3s;
+	  }
+	  .header ul li:hover ul li{
+		  display: block;
+		  border-top: 1px solid rgba(72,219,251,0.5);
+	  }
+	  
+	img{max-height: 100%;width: auto;display: inline-block;}
+	#chart
+	{ 
+		height: 100px;
+		width: 100px;
+	}
+	

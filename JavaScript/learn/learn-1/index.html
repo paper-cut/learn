@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+		<title></title>
+		<link rel="stylesheet" href="https://js.arcgis.com/3.39/esri/css/esri.css">
+		<style>
+			html,body,#map{height:100%;padding: 0;margin: 0;}
+			.header{height: 5%;margin: 0;background-color: azure;text-align: ri}
+			.header>.choice-button{height: 100%;margin: 0;border-width:0px;border-radius: 3px;background-color:#184aff;cursor: pointer;outline: none;font-family: "microsoft yahei";color: white;font-size: 17px; beige;display: inline-block;}
+			.header>.choice-button:hover{background: #5599FF;}
+		</style>
+		<script src="http://js.arcgis.com/3.39/"></script>
+		<script>
+			var map;
+			require(["esri/map","esri/layers/ArcGISImageServiceLayer","esri/layers/ImageServiceParameters", "dojo/parser", "dojo/domReady!"],function(Map,ArcGISMapImageServiceLayer,ImageServiceParameters,parser){
+				parser.parse();
+				map=new Map("map",{
+					basemap:"satellite",
+					center:[-122.45,37.75],
+					zoom:13
+				});
+				
+				var params=new ImageServiceParameters();
+				params.noData=0;
+				var imageServiceLayer=new ArcGISMapImageServiceLayer("http://127.0.0.1:6080/arcgis/rest/services/鲁西南有机质_tif/ImageServer".{
+					imageServiceParameters:params,
+					opacity:0.75
+				});
+				map.addLayer(imageServiceLayer);
+			});
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<button class="choice-button">影像加载</button>
+			<button class="choice-button">指标反演</button>
+			<button class="choice-button">土壤分级</button>
+			<button class="choice-button">信息查询</button>
+			<button class="choice-button">时空分析</button>
+			<button class="choice-button">空间分析</button>
+		</div>
+		<div id="map"></div>
+	</body>
+</html>

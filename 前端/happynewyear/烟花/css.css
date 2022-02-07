@@ -1,0 +1,53 @@
+body{margin:0;padding:0;overflow: hidden;}
+.city{width:100%;position:fixed;bottom: 0px;z-index: 100;}
+.city img{width: 100%;}
+
+#zhufu{
+    display: flex;
+    position:fixed;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100px;
+    width: 500px;
+    visibility: hidden;
+}
+#zhufu.active{
+    visibility: visible;
+}
+.zhufuin{
+    position: relative;
+    height: 50%;
+    width: 80%;
+    font-size: large;
+    padding-left: 10px;
+    border: none;
+    border-radius: 10px;
+    border-width: 1px;
+
+}
+.zhufuout{
+    position: relative;
+    height: 50%;
+    width: 20%;
+    background-color: rgb(221, 15, 49);
+    margin-left: 5px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+.zfopen{
+    position: fixed;
+    display: inline-block;
+    height: 40px;
+    left: 50%;
+    width: 100px;
+    font-size: 10px;
+    transform: translateX(-50%);
+    background-color: brown;
+    border-radius: 10px;
+    visibility: visible;
+}
+.zfopen.active{
+    visibility: hidden;
+}

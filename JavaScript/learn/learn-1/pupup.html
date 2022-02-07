@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins',sans-serif;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background: #2196f3;
+		}
+		.btn{
+			position: relative;
+			padding: 15px 20px;
+			background: #fff;
+			font-size: 18px;
+			display: inline-block;
+			text-decoration: none;
+			color: #03a9f4;
+			font-weight: 500;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			transition: 0.5s;
+		}
+		.btn:hover{
+			letter-spacing: 4px;
+		}
+		
+		#popup{
+			position: fixed;
+			top: -100%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			z-index: 1000;
+			background: #fff;
+			width: 450px;
+			padding: 80px 50px 50px;
+			box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+			transition: 0.5s;
+			visibility: hidden;
+		}
+		#popup .content{
+			position: relative;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#popup .content img{
+			max-width: ;
+		}
+		#popup .content h2{
+			font-size: 24px;
+			font-weight: 500;
+			color: #333;
+			margin: 20px 0 10px;
+		}
+		#popup .content p{
+			text-align: center;
+			width: 100%;
+			color: #333;
+		}
+		#popup .content .inputBox{
+			position: relative;
+			width: 100%;
+			margin-top: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#popup .content .inputBox input{
+			width: 100%;
+			border: 1px solid rgba(0,0,0,0.2);
+			padding: 15px;
+			outline: none;
+			font-size: 18px;
+		}
+		#popup .content .inputBox input[type="submit"]{
+			max-width: 150px;
+			background:#03a9f4;
+			color: #fff;
+		}
+		#popup.active{
+			visibility: visible;
+			top: 50%;
+		}
+		.close{
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			cursor: pointer;
+		}
+		</style>
+	</head>
+	<body>
+		<button class="btn" onclick="popupToggle()">sub</button>
+		<div id="popup">
+			<div class="content">
+				<img src="email.png">
+				<h2>Join Our Newsletter</h2>
+				<p>alllalalalalalalal.</p>
+				<div class="inputBox">
+					<input type="email" placeholder="Enter Email">
+				</div>
+				<div class="inputBox">
+					<input type="submit" value="Sign up" class="btn">
+				</div>
+			</div>
+			<a class="close" onclick="popupToggle()"><img src="x.png"></a>
+		</div>
+		<script>
+			function popupToggle(){
+				const popup=document.getElementById('popup');
+				popup.classList.toggle('active')
+			}
+		</script>
+	</body>
+</html>

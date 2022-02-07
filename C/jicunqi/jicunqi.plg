@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: jicunqi - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\wa208\AppData\Local\Temp\RSP4725.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/jicunqi.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"D:\DaiMA\C\jicunqi\main.c"
+]
+Creating command line "cl.exe @C:\Users\wa208\AppData\Local\Temp\RSP4725.tmp" 
+Creating temporary file "C:\Users\wa208\AppData\Local\Temp\RSP4726.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/jicunqi.pdb" /debug /machine:I386 /out:"Debug/jicunqi.exe" /pdbtype:sept 
+.\Debug\main.obj
+]
+Creating command line "link.exe @C:\Users\wa208\AppData\Local\Temp\RSP4726.tmp"
+<h3>Output Window</h3>
+Compiling...
+main.c
+Linking...
+LINK : fatal error LNK1104: cannot open file "Debug/jicunqi.exe"
+Ö´ÐÐ link.exe Ê±³ö´í.
+
+
+
+<h3>Results</h3>
+jicunqi.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

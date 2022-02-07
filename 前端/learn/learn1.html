@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="popupcss.css">
+    <title>Learn html 1-popup</title>
+    <script>
+        function popupToggle(){
+            const popup=document.getElementById('popup');
+            popup.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <button type="button" value="open" onclick="popupToggle()">打开</button>
+    <div id="popup">
+        <div class="content">
+            <h2>加载文件</h2>
+            <div class="locformchoice">
+                <p>选择文件来源：</p>
+                <label><input type="radio" name="choice">从网络地址获取</label>
+                <label><input type="radio" name="choice">从本地地址获取</label>
+            </div>
+            <div class="locat">
+                <p>输入文件地址:</p>
+                <input type="text">
+            </div>
+            <div class="locatbtn">
+                <input type="submit" value="加载并显示">
+                <input type="submit" value="后台加载">
+            </div>
+        </div>
+    </div>
+    <div id="popup2">
+        <div class="content">
+            <h2>指标反演</h2>
+            <label for="zhibiao">指标:
+            <select>
+                <option id="zhibiao">指标1</option>
+            </select>
+            </label>
+            <label for="moxing">模型:
+            <select>
+                <option id="moxing">模型1</option>
+            </select>
+            </label>
+            <label>选择影像:
+            <input type="text">
+            </label>
+            <div class="btndiv">
+                <input type="submit" value="反演">
+                <input type="submit" value="显示">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

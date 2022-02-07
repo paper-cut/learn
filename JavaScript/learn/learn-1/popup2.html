@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 100%;
+			height: 100%;
+		}
+		#popup{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top:0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: #000000;
+			margin: auto;
+			visibility: hidden;
+		}
+		#popup.active{
+			visibility: visible;
+			top:50%;
+			
+		}
+		.btn{
+			justify-content: center;
+			align-items: center;
+			margin:0 auto;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="popup"></div>
+		<button class="btn" onclick="pop()">touch</button>
+		<script>
+			function pop(){
+				const popup=ducument.getElementById('popup');
+				popup.classList.toggle('active');
+			}
+		</script>
+	</body>
+</html>

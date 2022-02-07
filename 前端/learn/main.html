@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Simple Image Service</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css" />
+	  <link rel="stylesheet" type="text/css" href="css1.css">
+
+    <style>
+      
+	</style>
+
+    <script src="https://js.arcgis.com/3.20/"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script>
+      var map;
+      require([
+        "esri/map", "esri/layers/ArcGISImageServiceLayer", 
+        "esri/layers/ImageServiceParameters", "dojo/parser", "dojo/domReady!","esri/tasks/RasterData"
+      ], function(
+        Map, ArcGISImageServiceLayer, 
+        ImageServiceParameters, parser,RasterData
+      ) {
+        parser.parse();
+
+        map = new Map("map", {
+          basemap: "satellite",
+          center: [-79.40, 43.64],
+          zoom: 12
+        });
+
+        var params = new ImageServiceParameters();
+        params.noData = 0;
+        var imageServiceLayer = new ArcGISImageServiceLayer("http://localhost:6080/arcgis/rest/services/kenli_before/ImageServer", {
+          imageServiceParameters: params,
+          opacity: 0.75
+        });
+        map.addLayer(imageServiceLayer);
+      });
+    
+    </script>
+  </head>
+  
+  <body>
+  		<div class="header">
+			<ul>
+				<li><a href="#">工具</a>
+					<ul>
+						<li><a href="#">影像加载</a></li>
+						<li><a href="#">指标反演</a></li>
+						<li><a href="#">信息查询</a></li>
+						<li><a href="#">空间分析</a></li>
+						<li><a href="#">时空分析</a></li>
+					</ul>
+				</li>
+				<li><a href="#">土壤知识库</a></li>
+				<li><a href="#">建议决策</a></li>
+				<li><a href="#">农业咨询</a></li>
+				<li><a href="#">个人中心</a></li>
+			</ul>
+		</div>
+    <div id="chart"></div>
+    <script type="text/javascript">
+      var myChart = echarts.init(document.getElementById('chart'));
+
+$.get('data.json').done(function (data) {
+myChart.setOption({
+    title: {
+        text: '异步数据加载示例'
+    },
+    tooltip: {},
+    legend: {
+        data:['销量']
+    },
+    xAxis: {
+        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    },
+    yAxis: {},
+    series: [{
+        name: '销量',
+        type: 'bar',
+        data: [5, 20, 36, 10, 10, 20]
+    }]
+});
+});
+    </script>
+    <div id="map"> </div>
+  </body>
+
+</html>
