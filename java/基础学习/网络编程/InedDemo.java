@@ -8,5 +8,6 @@ public class InedDemo {
 
         System.out.println(address.getHostAddress());
         System.out.println(address.getHostName());
+
     }
 }
