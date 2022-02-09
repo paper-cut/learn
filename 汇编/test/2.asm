@@ -1,3 +1,5 @@
+; 取特点段2000H的一段内存单元中的数据
+
 assume cs:codesg
 
 codesg segment
