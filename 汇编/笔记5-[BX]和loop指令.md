@@ -8,7 +8,7 @@
 
 <code>
 mov dx,0000H
-mov ax,[dx]
+mov ax,[bx]
 </code>
 
 这样就可以实现将ds:0000H这一内存单元中的数据存入ax寄存器。
