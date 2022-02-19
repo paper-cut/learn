@@ -18,6 +18,7 @@ codesg segment
     mov bx,0
     mov si,16
 
+    mov cx,6
     s:
     mov al,[bx+2]
     and al,11011111b

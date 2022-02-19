@@ -16,7 +16,8 @@ codesg segment
 
     mov cx,4
     s:
-    mov si,cx
+    ; mov si,cx 可以使用dx寄存器来临时存放外层cx的值
+    mov dx,cx
     mov cx,3
      mov di,0
     p:
@@ -26,7 +27,8 @@ codesg segment
     inc di
     loop p
     add bx,16
-    mov cx,si
+    ; mov cx,si
+    mov cx,dx
     loop s
 
     mov ax,4c00h
