@@ -10,6 +10,6 @@ code segment
     mov ax,data
     mov ds,ax
     mov bx,0
-    jmp word ptr ds:[bx+1]
+    jmp word ptr [bx+1]
 code ends
 end start
