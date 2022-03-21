@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import nonebot
-
+from nonebot.adapters.cqhttp.bot import Bot
 # Custom your logger
 # 
 # from nonebot.log import logger, default_format
@@ -13,15 +13,16 @@ import nonebot
 #            format=default_format)
 
 # You can pass some keyword args config to init function
-nonebot.init()
+nonebot.init(apscheduler_autostart=True)
+nonebot.get_driver().register_adapter("cqhttp",Bot)
 app = nonebot.get_asgi()
-
+nonebot.load_builtin_plugins()
+nonebot.load_plugins("src/plugins")
 driver = nonebot.get_driver()
-
 
 # Please DO NOT modify this file unless you know what you are doing!
 # As an alternative, you should use command `nb` or modify `pyproject.toml` to load plugins
-nonebot.load_from_toml("pyproject.toml")
+#nonebot.load_from_toml("pyproject.toml")
 
 # Modify some config / config depends on loaded configs
 # 
